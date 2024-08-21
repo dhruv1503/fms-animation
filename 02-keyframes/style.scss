@@ -9,6 +9,11 @@
   --transition-easing: cubic-bezier(0.5, 0, 0.5, 1);
   --animation-duration: 0.8s;
 }
+
+*::-webkit-scrollbar{
+  display: none;
+}
+
 body {
   display: flex;
   justify-content: center;
@@ -27,7 +32,7 @@ body {
   grid-column-gap: 1rem;
   grid-template-areas: 'input button';
 
-  // Add an animation here
+ animation : slide-up 1s 0s ease-in-out;
 
   --color: var(--color-gray);
   &:focus-within {
@@ -60,6 +65,15 @@ body {
   height: var(--input-height);
   background-color: var(--color);
   transition: inherit;
+  &:active{
+    animation-name: shake;
+    animation-timing-function: ease-in-out;
+    animation-duration: 0.7s;
+    animation-delay: 0s;
+    animation-iteration-count: 5;
+    // animation-fill-mode: both;
+  }
+  
 }
 
 [data-show]:not([data-active]) {
@@ -71,9 +85,25 @@ body {
 }
 
 @keyframes slide-up {
-  // Add keyframes here
+ from{
+  transform: translateY(50vh);
+  opacity: 0;
+ }
+ to{
+ 
+  transform: translateY(0);
+  opacity: 1;
+ }
 }
 
 @keyframes shake {
-  // Add a shake animation here
+  from{
+    transform: translateX(5px);
+  }
+  50%{
+    transform: translateX(-5px);
+  }
+  to{
+    transform: none;
+  }
 }

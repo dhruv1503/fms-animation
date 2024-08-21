@@ -26,6 +26,45 @@ ul {
 .ball {
   height: 5vmin;
   width: 5vmin;
+  left: 20vw;
   border-radius: 50%;
   background: radial-gradient(circle at bottom right, #fb2324, #fe932a);
+  // animation: slide-right 1s 0s linear infinite;
+  background: red;
+  transition-property: background, transform;
+  transition-duration: 1s;
+  animation-name: move-like-a-square;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  &:hover{
+    background: blue;
+    transform:  scale(1.2);
+  }
 }
+
+@keyframes move-like-a-square {
+  0%{
+    transform: none
+  }
+  25%{
+    transform: translateX(20vw);
+  }
+  50%{
+    transform: translateX(20vw) translateY(20vw);
+  }
+  75%{
+    transform: translateY(20vw);
+  }
+  100%{
+    transform: translateX(0) translateY(0);
+  }
+}
+
+// @keyframes slide-right{
+//   from{
+//     transform : translateX(0)
+//   }
+//   to{
+//     transform:  translateX(50vw);
+//   }
+// }
