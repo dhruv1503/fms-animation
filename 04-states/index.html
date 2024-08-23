@@ -19,8 +19,15 @@
     </form>
   </body>
   <script>
-    const form = document.querySelector('.ui-form');
-
-    // ...
+    const form = document.querySelector(".ui-form");
+    const button = document.querySelector(".ui-button");
+    button.addEventListener("click", () => {
+      const number = Math.random(10);
+      if (number > 5) {
+        form.dataset.state = "error";
+      } else {
+        form.dataset.state = "success";
+      }
+    });
   </script>
 </html>
